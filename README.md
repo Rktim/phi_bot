@@ -1,1 +1,5 @@
-A streamlit chatbot app with the help of Microsofts new phi-3 model and ollama.
+Importing required libraries: It imports streamlit and Ollama.
+Streamlit header: The program displays a title with the given emoji.
+Session state management: A session_state object is created to manage user messages, roles, and chat content during runtime. Messages are stored in this dictionary-like structure.
+Message handling function (generate_response()): This function uses Ollama's chat method to generate a stream of text responses from the model. It yields partial tokens which are then appended to st.session_state["full_message"]. The generated response is sent back to the user via Streamlit's chat interface, while also updating the session state with new messages and full content for future processing or display.
+Input handling: Using st.chat_input(), user prompts are captured as input and stored in the session state. Then, Ollama's AI model generates a response based on that input which is sent back to the user using st.session_state["full_message"]. After displaying the assistant's generated message, it updates the session state with new messages for further conversation handling.
